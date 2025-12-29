@@ -8,7 +8,7 @@ API_ID = int(os.environ.get("API_ID"))
 API_HASH = os.environ.get("API_HASH")
 SESSION_STR = os.environ.get("SESSION_STR")
 # 这里的 ID 就是你之前找到的那个
-CHAT_ID = -1001804946196 
+CHAT_ID = -1002213793309
 MESSAGE = "签到"
 
 async def main():
