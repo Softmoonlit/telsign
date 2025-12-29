@@ -1,0 +1,30 @@
+name: Telegram Auto Sign-in
+
+on:
+  schedule:
+    # 这里的 cron 表达式代表定时时间（UTC时间）
+    # 例如：'0 2 * * *' 代表北京时间每天上午 10:00 运行
+    - cron: '0 2 * * *' 
+  workflow_dispatch: # 允许手动点击按钮运行测试
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Script
+        env:
+          API_ID: ${{ secrets.API_ID }}
+          API_HASH: ${{ secrets.API_HASH }}
+          SESSION_STR: ${{ secrets.SESSION_STR }}
+        run: python main.py
