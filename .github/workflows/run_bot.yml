@@ -4,7 +4,7 @@ on:
   schedule:
     # 这里的 cron 表达式代表定时时间（UTC时间）
     # 例如：'0 2 * * *' 代表北京时间每天上午 10:00 运行
-    - cron: '55 2 * * *' 
+    - cron: '21 0 * * *'
   workflow_dispatch: # 允许手动点击按钮运行测试
 
 jobs:
