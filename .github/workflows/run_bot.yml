@@ -6,6 +6,12 @@ on:
     # 例如：'0 2 * * *' 代表北京时间每天上午 10:00 运行
     - cron: '17 2 * * *' 
   workflow_dispatch: # 允许手动点击按钮运行测试
+  push:
+    branches:
+      - main  # 添加push触发器，保持仓库活跃，防止scheduled workflow被禁用
+
+permissions:
+  contents: read  # 明确指定权限
 
 jobs:
   build:
