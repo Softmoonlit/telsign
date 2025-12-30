@@ -8,7 +8,10 @@ on:
   workflow_dispatch: # 允许手动点击按钮运行测试
   push:
     branches:
-      - main  # 添加push触发器，保持仓库活跃，防止scheduled workflow被禁用
+      - main  # 保持仓库活跃，防止60天无活动导致scheduled workflow被禁用
+    paths-ignore:
+      - 'README.md'  # README更新不触发workflow
+      - '.gitignore'
 
 permissions:
   contents: read  # 明确指定权限
